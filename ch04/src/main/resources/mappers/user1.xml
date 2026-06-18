@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.ch04.dao.User1DAO">
+
+    <!-- id 값은 DAO의 메서드명으로 맞춰줌 -->
+    <select id="select">
+        select * from user1 where userid=#{userid};
+    </select>
+
+    <select id="selectAll">
+        select * from user1;
+    </select>
+
+    <insert id="insert">
+        Insert into user1 set
+                            userid=#{userid},
+                            name=#{name},
+                            hp=#{hp},
+                            age=#{age};
+    </insert>
+
+    <update id="update">
+        Update user1 set
+                    name=#{name},
+                    hp=#{hp},
+                    age=#{age}
+                    where userid=#{userid};
+    </update>
+
+    <delete id="delete">
+        delete from user1 where userid=#{userid};
+    </delete>
+</mapper>

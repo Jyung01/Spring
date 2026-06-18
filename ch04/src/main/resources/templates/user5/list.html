@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>user5::목록</title>
+	</head>
+	<body>
+		<h3>User5 목록</h3>
+
+		<a th:href="@{/}">메인</a><br>
+		<a th:href="@{/user5/register}">등록</a><br>
+		
+	
+		<table border="1">
+			<tr>
+				<th>아이디</th>
+				<th>이름</th>
+				<th>성별</th>
+				<th>나이</th>
+				<th>주소</th>
+				<th>관리</th>
+			</tr>
+			<!-- 
+				- ListController 에서 req 객체로 setAttribute 한 dtoList 를 표현언어에서
+				  requestScope 로 참조
+				- 표현언어 내장객체 requestScope 는 일반적으로 생략
+			 -->
+			<tr th:each="dto:${dtoList}">
+				<td th:text="${dto.seq}"></td>
+				<td th:text="${dto.name}"></td>
+				<td th:text="${dto.gender}"></td>
+				<td th:text="${dto.age}"></td>
+				<td th:text="${dto.addr}"></td>
+				<td>
+					<a th:href="@{/user5/modify(seq=${dto.seq})}">수정</a>
+					<a th:href="@{/user5/remove(seq=${dto.seq})}">삭제</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
