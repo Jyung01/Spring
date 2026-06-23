@@ -29,7 +29,14 @@ public class Article {
     @JoinColumn(name = "writer")
     private User user;
 
-    //  1:N 관계는 List 선언
+    /*
+    *  1 : N 관계 (OneToMany)
+    *  - 참조 타입이 List<Entity>로 선언
+    *  - fetch는 LAZY로 사용, EAGER는 성능부담 발생
+    *  - mappedBy는 해당 엔티티(Article)와 관계가 설정되는 대상 엔티티(Comment)의
+    *    현재 엔티티 속성을 선언
+    *  - mappedBy는 대상 엔티티의 외래키 속성을 선언
+    * */
     @OneToMany(mappedBy = "article",
             fetch = FetchType.LAZY)
     private List<Comment> commentList;
