@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+	<head>
+		<meta charset="UTF-8">
+		<title>사용자 정보</title>
+	</head>
+	<body>
+		<h3>사용자 정보</h3>
+
+		<a th:href="@{/}">메인</a><br>
+		<a th:href="@{/user/logout}">로그아웃</a><br>
+
+		<!--
+			Security 인증객체를 참조하는 방식
+		-->
+
+		<p>
+			아이디 : <span th:text="${user.userid}"></span><br>
+			이름 : <span th:text="${user.name}"></span><br>
+			생년월일 : <span sec:authentication="principal.user.birth">생년월일</span><br>
+			나이 : <span sec:authentication="principal.user.age"></span><br>
+			회원등급 : <span>[[${#authentication.principal.user.role}]]</span><br>
+			가입일 : <span>[[${#authentication.principal.user.rdate}]]</span><br>
+
+		</p>
+
+	</body>
+</html>

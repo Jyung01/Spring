@@ -1,9 +1,8 @@
-package org.example.ch07.service;
+package org.example.ch07.security;
 
 import lombok.RequiredArgsConstructor;
 import org.example.ch07.entity.User;
 import org.example.ch07.repository.UserRepository;
-import org.example.ch07.security.MyUserDetails;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
