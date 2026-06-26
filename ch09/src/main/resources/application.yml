@@ -1,0 +1,32 @@
+logging:
+    file:
+        name: /logs/ch09.log
+    level:
+        root: info
+server:
+    servlet:
+        context-path: /ch09
+spring:
+    application:
+        name: ch09
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: 1234
+        url: jdbc:mysql://127.0.0.1:3306/studydb
+        username: wldnd9895
+    jpa:
+        database: mysql
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                format_sql: true
+                naming:
+                    physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+                show_sql: true
+
+
+# JWT 설정
+jwt:
+    issuer: wldnd9895@gmail.com
+    secret: 7bbcf05b143e24cebf42bdba692c934e
